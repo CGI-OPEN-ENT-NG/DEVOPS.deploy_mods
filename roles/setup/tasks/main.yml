@@ -1,0 +1,7 @@
+---
+- name: Load server configurations
+  git:
+      repo: "https://github.com/SLedunois/ansible_cicd_host_vars"
+      dest: "{{ playbook_dir }}/host_vars"
+      version: "master"
+...

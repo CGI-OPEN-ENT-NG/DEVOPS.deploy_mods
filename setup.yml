@@ -1,0 +1,9 @@
+---
+- name: Setup job
+  hosts: app
+  connection: local
+  remote_user: root
+
+  roles:
+    - setup
+...

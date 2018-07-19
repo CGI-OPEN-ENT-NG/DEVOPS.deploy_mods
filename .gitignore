@@ -2,3 +2,4 @@ ansible.log
 **/*.retry
 workspace/*
 !workspace/.gitkeep
+host_vars
