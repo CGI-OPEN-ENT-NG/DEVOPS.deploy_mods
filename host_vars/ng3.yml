@@ -1,0 +1,11 @@
+---
+vertx_user: vertx
+vertx_group: appli
+springboard_path: "/appli/vertx/springboard-vertx3"
+mods:
+  schooltoring:
+    repository: https://github.com/OPEN-ENT-NG/schooltoring
+    branch: dev
+    prefix: fr.openent
+    version: 0.1-SNAPSHOT
+...

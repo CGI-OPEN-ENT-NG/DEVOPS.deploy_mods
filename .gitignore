@@ -1,1 +1,4 @@
 ansible.log
+**/*.retry
+workspace/*
+!workspace/.gitkeep

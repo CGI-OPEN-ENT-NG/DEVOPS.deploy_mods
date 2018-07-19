@@ -1,7 +1,0 @@
----  
-- name: Stop springboard
-  become: yes
-  become_user: "{{ vertx_user }}"
-  become_method: su
-  shell: "cd {{ springboard_path }} && ./build.sh stop"
-...
