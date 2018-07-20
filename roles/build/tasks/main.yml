@@ -11,7 +11,7 @@
 
   - name: Building project
     with_dict: "{{ mods }}"
-    shell: ./build.sh install
+    shell: . ~/.bashrc && ./build.sh install
     args:
       chdir: "{{ playbook_dir }}/workspace/{{ inventory_hostname }}/{{ item.key }}"
     register: build_result
