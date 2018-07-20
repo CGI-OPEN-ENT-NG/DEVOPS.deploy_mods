@@ -2,7 +2,7 @@
 - name: Build mods
   hosts: app
   connection: local
-  remote_user: root
+  remote_user: tomcat
 
   roles:
     - build
