@@ -12,8 +12,6 @@
   - name: Building front side
     with_dict: "{{ mods }}"
     shell: ./build.sh buildNode
-    become: true
-    become_method: sudo
     args:
       chdir: "{{ playbook_dir }}/workspace/{{ inventory_hostname }}/{{ item.key }}"
     register: build_result
@@ -21,8 +19,6 @@
 
   - name: Building server side
     with_dict: "{{ mods }}"
-    become: true
-    become_method: sudo
     shell: ./build.sh buildGradle
     args:
       chdir: "{{ playbook_dir }}/workspace/{{ inventory_hostname }}/{{ item.key }}"
