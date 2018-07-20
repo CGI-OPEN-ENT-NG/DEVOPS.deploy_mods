@@ -15,6 +15,6 @@
     args:
       chdir: "{{ playbook_dir }}/workspace/{{ inventory_hostname }}/{{ item.key }}"
     register: build_result
-    failed_when: ("'ERR' in build_result.stderr") or
+    failed_when: ("'error' in build_result.stderr") or
                  ("'FAILED' in build_result.stderr")
 ...
