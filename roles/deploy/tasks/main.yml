@@ -29,5 +29,6 @@
     dest: "{{ springboard_path }}/mods"
     owner: "{{ vertx_user }}"
     group: "{{ vertx_group }}"
+    remote_src: yes
   when: item.value.location is not defined  
 ...
