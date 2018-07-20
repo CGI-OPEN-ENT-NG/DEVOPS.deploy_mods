@@ -9,19 +9,11 @@
       dest: "{{ playbook_dir }}/workspace/{{ inventory_hostname }}/{{ item.key }}"
       version: "{{ item.value.branch }}"
 
-  - name: Building front side
+  - name: Building project
     with_dict: "{{ mods }}"
-    shell: ./build.sh buildNode
+    shell: ./build.sh install
     args:
       chdir: "{{ playbook_dir }}/workspace/{{ inventory_hostname }}/{{ item.key }}"
     register: build_result
     failed_when: "'ERR' in build_result.stderr"
-
-  - name: Building server side
-    with_dict: "{{ mods }}"
-    shell: ./build.sh buildGradle
-    args:
-      chdir: "{{ playbook_dir }}/workspace/{{ inventory_hostname }}/{{ item.key }}"
-    register: build_result
-    failed_when: "'FAILED' in build_result.stderr"
 ...
