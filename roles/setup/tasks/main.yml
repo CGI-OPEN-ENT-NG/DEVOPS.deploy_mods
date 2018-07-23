@@ -2,7 +2,7 @@
 - name: Load server configurations
   run_once: true
   git:
-      repo: "https://github.com/SLedunois/ansible_cicd_host_vars"
+      repo: "https://github.com/CGI-OPEN-ENT-NG/cicd_host_vars"
       dest: "{{ playbook_dir }}/host_vars"
       version: "master"
 ...
