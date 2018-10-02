@@ -1,9 +1,7 @@
----
 - name: Setup job
-  hosts: app
+  hosts: "{{ target }}"
   connection: local
   remote_user: root
 
   roles:
     - setup
-...

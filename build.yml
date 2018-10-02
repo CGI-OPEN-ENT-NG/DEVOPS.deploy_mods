@@ -1,9 +1,7 @@
----
 - name: Build mods
-  hosts: app
+  hosts: "{{ target }}"
   connection: local
   remote_user: tomcat
 
   roles:
     - build
-...

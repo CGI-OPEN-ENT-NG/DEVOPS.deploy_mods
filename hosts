@@ -1,7 +1,14 @@
-[app]
+[ng1]
 ng1
+
+[ng2]
 ng2
+
+[ng3]
 ng3
+
+[ng4]
+ng4
 
 [all]
 ng1
