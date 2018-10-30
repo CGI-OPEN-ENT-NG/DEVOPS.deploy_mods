@@ -3,6 +3,7 @@
   run_once: true
   git:
       repo: "https://github.com/CGI-OPEN-ENT-NG/cicd_host_vars"
+      force: yes
       dest: "{{ playbook_dir }}/host_vars"
       version: "master"
 ...

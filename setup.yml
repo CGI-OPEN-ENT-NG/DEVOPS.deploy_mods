@@ -1,7 +1,6 @@
 - name: Setup job
   hosts: "{{ target }}"
   connection: local
-  remote_user: root
-
+  remote_user: jenkins
   roles:
     - setup

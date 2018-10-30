@@ -1,5 +1,5 @@
-- name: Deploy mods
+- name: Build springboard front
   hosts: "{{ target }}"
   remote_user: centos
   roles:
-    - deploy
+    - build-front

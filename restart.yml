@@ -1,5 +1,6 @@
-- name: Deploy mods
+- name: Restart server
   hosts: "{{ target }}"
   remote_user: centos
   roles:
-    - deploy
+    - stop
+    - start

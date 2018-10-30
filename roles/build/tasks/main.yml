@@ -6,12 +6,13 @@
     with_dict: "{{ mods }}"
     git:
       repo: "{{ item.value.repository }}"
+      force: yes
       dest: "{{ playbook_dir }}/workspace/{{ inventory_hostname }}/{{ item.key }}"
       version: "{{ item.value.branch }}"
 
   - name: Building project
     with_dict: "{{ mods }}"
-    shell: . ~/.bashrc && ./build.sh install
+    shell: ./build.sh install
     args:
       chdir: "{{ playbook_dir }}/workspace/{{ inventory_hostname }}/{{ item.key }}"
     register: build_result

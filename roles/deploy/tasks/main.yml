@@ -1,4 +1,13 @@
 ---
+- name: Chown to vertx user
+  become: yes
+  become_method: sudo
+  file:
+    path: "{{ springboard_path }}/mods"
+    owner: "{{ vertx_user }}" 
+    group: "{{ vertx_group }}"
+    recurse: yes
+
 - name: Remove mods
   become: yes
   become_user: "{{ vertx_user }}"
@@ -15,6 +24,7 @@
 
 - name: Copy build mods
   with_dict: "{{ mods }}"
+  become: yes
   copy:
     src: "{{ playbook_dir }}/workspace/{{ inventory_hostname }}/{{ item.key }}/build/libs/{{ item.value.prefix }}~{{ item.key }}~{{ item.value.version }}-fat.jar"
     dest: "{{ springboard_path }}/mods"

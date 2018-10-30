@@ -1,7 +1,6 @@
 - name: Build mods
   hosts: "{{ target }}"
   connection: local
-  remote_user: tomcat
-
+  remote_user: jenkins
   roles:
     - build

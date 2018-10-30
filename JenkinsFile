@@ -1,0 +1,34 @@
+#!/usr/bin/env groovy
+
+pipeline {
+  agent any
+    stages {
+      stage('Setup') {
+        steps {
+          checkout scm
+          sh 'ansible-playbook -i hosts --extra-vars "target=$JOB_NAME" setup.yml'
+        }
+      }
+      stage('Build') {
+        steps {
+          sh 'ansible-playbook -i hosts --extra-vars "target=$JOB_NAME" build.yml'
+        }
+      }
+      stage('Deploy') {
+        steps {
+          sh 'ansible-playbook -i hosts --extra-vars "target=$JOB_NAME" deploy.yml'
+        }
+      }
+      stage('Restart server') {
+        steps {
+          sh 'ansible-playbook -i hosts --extra-vars "target=$JOB_NAME" restart.yml'
+        }
+      }
+      stage('Build springboard theme') {
+        steps {
+          sh 'sleep 45'
+          sh 'ansible-playbook -i hosts --extra-vars "target=$JOB_NAME" build-front.yml'
+        }
+      }
+    }
+}
