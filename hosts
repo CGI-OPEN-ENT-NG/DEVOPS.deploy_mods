@@ -1,17 +1,9 @@
-[ng1]
-ng1
+[ng1.preprod-ent.fr]
+ng1.preprod-ent.fr
 
-[ng2]
-ng2
-
-[ng3]
-ng3
-
-[ng4]
-ng4
+[ng2.preprod-ent.fr]
+ng2.preprod-ent.fr
 
 [all]
-ng1
-ng2
-ng3
-ng4
+ng1.preprod-ent.fr
+ng2.preprod-ent.fr
