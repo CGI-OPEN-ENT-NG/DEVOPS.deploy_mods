@@ -3,7 +3,7 @@
     become: yes
     become_user: "{{ vertx_user }}"
     become_method: su
-    shell: "{{ springboard_path }}/build.sh buildFront"
+    shell: "cd {{ springboard_path }} && ./build.sh buildFront"
     register: build_result
     failed_when: "'FAILED' in build_result.stderr"
 ...
