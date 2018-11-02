@@ -2,7 +2,7 @@
 - name: Load server configurations
   run_once: true
   git:
-      repo: "https://github.com/CGI-OPEN-ENT-NG/cicd_host_vars"
+      repo: "https://github.com/CGI-OPEN-ENT-NG/DEVOPS.deploy_mods_configuration"
       force: yes
       dest: "{{ playbook_dir }}/host_vars"
       version: "master"
