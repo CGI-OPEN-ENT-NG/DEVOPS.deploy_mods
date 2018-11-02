@@ -1,9 +1,20 @@
 ---
-  - name: Build springboard theme
-    become: yes
-    become_user: "{{ vertx_user }}"
-    become_method: su
-    shell: "cd {{ springboard_path }} && ./build.sh buildFront"
-    register: build_result
-    failed_when: "'FAILED' in build_result.stderr"
+- name: Chown to vertx user
+  become: yes
+  become_method: sudo
+  file:
+    path: "{{ springboard_path }}/mods"
+    owner: "{{ vertx_user }}" 
+    group: "{{ vertx_group }}"
+    recurse: yes
+
+- name: Build springboard theme
+  become: yes
+  become_user: "{{ vertx_user }}"
+  become_method: su
+  shell: "cd {{ springboard_path }} && ./build.sh buildFront"
+  register: build_result
+  failed_when: 
+    - "'FAILED' in build_result.stderr"
+    - "'EACCES' in build_result.sterr"
 ...
